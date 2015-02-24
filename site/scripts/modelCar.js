@@ -41,9 +41,8 @@ jvm.modelCar = (function jvmModelCar(w, d, $){
 	var _CarRecordManager = (function ObjCarRecordManager(){
 		
 		var carRecordDatabase = {};
-
 		var _addRecord = function privateAddRecord(make, model, year, owner, tag, renewDate){
-			var car = CarFactory.createdCar(make, model, owner);
+			var car = CarFactory.createdCar(make, model, year);
 			carRecordDatabase[tag] = { // carRecordDatabase{owner:owner, renewData:renewDate, car:{make_model_year}}
 				owner:owner,
 				renewDate:renewDate,
