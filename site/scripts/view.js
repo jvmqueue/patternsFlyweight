@@ -69,8 +69,9 @@ jvm.view = (function(w, d, $){
 			$nodeExist.empty();
 			var intCounter = 0;
 			for(prop in hashCars){
-				dom.printHeader(prop, frag);
-				dom.printInfo(hashCars[prop].car, frag);
+				dom.printHeader(prop, frag); // record names are defined by tag
+				dom.printInfo(hashCars[prop].car, frag); // records are saved by make model and year combination
+				dom.printInfo(hashCars[prop], frag); // a unique record contains owner and renew date		
 			}
 			nodeNewContainer.appendChild(frag);
 			nodeExist.appendChild(nodeNewContainer);
