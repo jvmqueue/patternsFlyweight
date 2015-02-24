@@ -37,8 +37,8 @@ jvm.view = (function(w, d, $){
 			var nodeText = null;
 			var nodeNew = null;
 			for(var prop in paramHash){
-				if(typeof paramHash[prop] == 'string'){
-					nodeText = d.createTextNode(prop + ' : ' + paramHash[prop]);
+				if(typeof hash[prop] === 'string'){
+					nodeText = d.createTextNode(prop + ' : ' + hash[prop]);
 					nodeNew = d.createElement('p');
 					nodeNew.appendChild(nodeText);
 					frag.appendChild(nodeNew);
