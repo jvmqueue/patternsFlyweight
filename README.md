@@ -1,7 +1,7 @@
 # patterns
 Flyweight
 
-<h1>Flyweight Design Pattern in Developmment</h1>
+<h1>Flyweight Design Pattern in Development</h1>
  
 <p>We are using adding cars to show the use of this pattern</p>
 
