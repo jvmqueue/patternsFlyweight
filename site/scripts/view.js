@@ -68,7 +68,7 @@ jvm.view = (function(w, d, $){
 			var frag = d.createDocumentFragment();
 			$nodeExist.empty();
 			var intCounter = 0;
-			for(prop in hashCars){
+			for(var prop in hashCars){
 				nodeNewContainer = d.createElement('div');
 				nodeNewContainer.setAttribute('class', 'jsCarRecord');
 				dom.printHeader(prop, nodeNewContainer); // record names are defined by tag
