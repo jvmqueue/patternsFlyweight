@@ -20,6 +20,30 @@ jvm.view = (function(w, d, $){
 				dom.nodes[prop].node = d.getElementById(strId);
 				dom.nodes[prop].$node = $(dom.nodes[prop].selector);
 			}
+		},
+		causeFocus:function(){
+			dom.nodes.txtMake.$node.focus();
+		},
+		printHeader:function(paramStr, paramFrag){
+			var frag = paramFrag;
+			var nodeText = d.createTextNode(paramStr);
+			var nodeNew = d.createElement('h3');
+			nodeNew.appendChild(nodeText);
+			frag.appendChild(nodeNew); // don't return frag, because DOM nodes are passed by reference
+		},
+		printInfo:function(paramHash, paramFrag){
+			var hash = paramHash;
+			var frag = paramFrag;
+			var nodeText = null;
+			var nodeNew = null;
+			for(var prop in paramHash){
+				if(typeof paramHash[prop] == 'string'){
+					nodeText = d.createTextNode(prop + ' : ' + paramHash[prop]);
+					nodeNew = d.createElement('p');
+					nodeNew.appendChild(nodeText);
+					frag.appendChild(nodeNew);
+				}
+			}
 		}
 	};
 
@@ -38,37 +62,24 @@ jvm.view = (function(w, d, $){
 		},
 		printCar:function(e){
 			var hashCars = jvm.modelCar.CarRecordManager.getRecord();
-			var frag = d.createDocumentFragment();
-			var nodeExist = dom.nodes.printCars.node;
 			var $nodeExist = dom.nodes.printCars.$node;
-			var nodesText = [];
-			var nodesNew = [];
+			var nodeExist = dom.nodes.printCars.node;
+			var nodeNewContainer = d.createElement('div');
+			var frag = d.createDocumentFragment();
 			$nodeExist.empty();
 			var intCounter = 0;
 			for(prop in hashCars){
-				nodesText[intCounter] = d.createTextNode('Tag: ' + prop);
-				nodesNew[intCounter] = d.createElement('p');
-				nodesNew[intCounter].appendChild(nodesText[intCounter]);
-
-				nodesText[intCounter + 1] = d.createTextNode(hashCars[prop].car.make);
-				nodesText[intCounter + 2] = d.createTextNode(hashCars[prop].car.model);
-				nodesText[intCounter + 3] = d.createTextNode(hashCars[prop].car.year);
-				nodesNew[intCounter + 1] = d.createElement('p');
-				nodesNew[intCounter + 1].appendChild(nodesText[intCounter + 1]);
-				nodesNew[intCounter + 1].appendChild(nodesText[intCounter + 2]);
-				nodesNew[intCounter + 1].appendChild(nodesText[intCounter + 3]);
-
-
-				frag.appendChild(nodesNew[intCounter]);
-				frag.appendChild(nodesNew[intCounter + 1]);
-				intCounter++;
+				dom.printHeader(prop, frag);
+				dom.printInfo(hashCars[prop].car, frag);
 			}
-			nodeExist.appendChild(frag);
+			nodeNewContainer.appendChild(frag);
+			nodeExist.appendChild(nodeNewContainer);
 		}
 	};
 
 	function main(){
 		dom.createCache();
+		dom.causeFocus();
 		listener.create({$node:dom.nodes.btnCreateCar.$node, eventName:'click', eventListener:listener.createCar});
 		listener.create({$node:dom.nodes.btnPrintCar.$node, eventName:'click', eventListener:listener.printCar});
 	}
