@@ -74,10 +74,11 @@ jvm.view = (function(w, d, $){
 				dom.printHeader(prop, nodeNewContainer); // record names are defined by tag
 				dom.printInfo(hashCars[prop].car, nodeNewContainer); // records are saved by make model and year combination
 				dom.printInfo(hashCars[prop], nodeNewContainer); // a unique record contains owner and renew date		
-				frag.appendChild(nodeNewContainer);
+				frag.appendChild(nodeNewContainer); // append new record
 			}
 			
-			nodeExist.appendChild(frag);
+			nodeExist.appendChild(frag); // append ALL records to page
+			
 		} // End printCar
 	}; // End listener
 
