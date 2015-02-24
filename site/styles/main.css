@@ -1,0 +1,31 @@
+/* from general to specific */
+.floatRight{
+	float:right;
+}
+.floatLeft{
+	float:left;
+} 
+.clearRight{
+	clear:right;
+}
+.clearLeft{
+	clear:left;
+}
+.clear{
+	clear:both;
+}
+.center{
+	margin:auto;
+}
+.container{
+	width:90%;
+	min-width:400px;
+}
+.frm{
+	width:25%;
+}
+.lbl{
+	height:30px;
+}  
+.txt{
+}

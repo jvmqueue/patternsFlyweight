@@ -1,0 +1,41 @@
+{
+  "name": "patterns_flyweight",
+  "matchdep": "~0.1.2",
+  "version": "1.0.0",
+  "description": "JvmQueue patterns flyweight",
+  "main": "scripts/main.js",
+  "scripts": {
+    "test": "jvm.flyweight.gruntTest()"
+  },
+  "repository": {
+    "type": "git",
+	"url": "https://github.com/jvmqueue/patterns.git"
+  },
+  "keywords": [
+    "patterns"
+  ],
+  "author": "glenn",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-compass": "~0.6.0",
+    "grunt-contrib-csslint": "^0.3.1",
+    "grunt-contrib-cssmin": "^0.11.0",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-uglify": "^0.7.0",
+    "grunt-contrib-watch": "~0.5.3",
+	"grunt-contrib-clean": "^0.6.0"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jvmqueue/jvmQueuePortfolio/issues"
+  },
+  "homepage": "https://github.com/jvmqueue/jvmQueuePortfolio",
+  "jshint": {
+    "options": {
+      "jshintrc": ".jshintrc"
+    },
+    "all": [
+      "scripts/*.js"
+    ]
+  }
+}

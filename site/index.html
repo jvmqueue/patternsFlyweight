@@ -1,0 +1,33 @@
+<!doctype html>
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<head>
+	<link rel="stylesheet" href="styles/main.css" />	
+	<script type="text/javascript" src="scripts/base/jquery-1.11.2.js"></script>
+	<script type="text/javascript" src="scripts/modelCar.js"></script>
+	<script type="text/javascript" src="scripts/controller.js"></script>
+	<script type="text/javascript" src="scripts/view.js"></script>
+
+</head>
+<body>
+	<div id="container" class="container center">
+	<form id="frmMain" class="frm center">
+		<fieldset>
+			<legend>Create Car</legend>
+			<label class="lbl floatLeft clearLeft">Make: </label><input id="txtMake" class="txt floatRight clearRight" type="text" placeholder="make" />
+			<label class="lbl floatLeft clearLeft">Model: </label><input id="txtModel" class="txt floatRight clearRight" type="text" placeholder="model" />
+			<label class="lbl floatLeft clearLeft">Year: </label><input id="txtYear" class="txt floatRight clearRight" type="text" placeholder="year" />
+			<label class="lbl floatLeft clearLeft">Owner: </label><input id="txtOwner" class="txt floatRight clearRight" type="text" placeholder="owner" />
+			<label class="lbl floatLeft clearLeft">Tag: </label><input id="txtTag" class="txt floatRight clearRight" type="text" placeholder="tag" />
+			<label class="lbl floatLeft clearLeft">Renew Date: </label><input id="txtRenewDate" class="txt floatRight clearRight" type="text" placeholder="renew date" />
+			<input class="btn floatRight clearRight" id="btnCreateCar" type="button" value="Submit" />
+		</fieldset>
+		<fieldset>
+			<legend>Print Cars</legend>
+			<input class="btn floatRight clearRight" id="btnPrintCar" type="button" value="Print Cars" />
+			<div id="printCars"></div>
+		</fieldset>
+	</form>
+
+	</div>	
+</body>
+</html>
