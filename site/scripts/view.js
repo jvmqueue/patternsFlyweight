@@ -64,25 +64,22 @@ jvm.view = (function(w, d, $){
 			var hashCars = jvm.modelCar.CarRecordManager.getRecord();
 			var $nodeExist = dom.nodes.printCars.$node;
 			var nodeExist = dom.nodes.printCars.node;
-			var nodeNewContainers = [];
+			var nodeNewContainer = null;
 			var frag = d.createDocumentFragment();
 			$nodeExist.empty();
 			var intCounter = 0;
 			for(prop in hashCars){
-				nodeNewContainers[intCounter] = d.createElement('div');
-				nodeNewContainers[intCounter].setAttribute('class', 'jsCarRecord');
-				dom.printHeader(prop, frag); // record names are defined by tag
-				dom.printInfo(hashCars[prop].car, frag); // records are saved by make model and year combination
-				dom.printInfo(hashCars[prop], frag); // a unique record contains owner and renew date		
-				nodeNewContainers[intCounter].appendChild(frag);
-				intCounter++;
+				nodeNewContainer = d.createElement('div');
+				nodeNewContainer.setAttribute('class', 'jsCarRecord');
+				dom.printHeader(prop, nodeNewContainer); // record names are defined by tag
+				dom.printInfo(hashCars[prop].car, nodeNewContainer); // records are saved by make model and year combination
+				dom.printInfo(hashCars[prop], nodeNewContainer); // a unique record contains owner and renew date		
+				frag.appendChild(nodeNewContainer);
 			}
 			
-			for(var i = 0, len = nodeNewContainers.length; i < len; i++){
-				nodeExist.appendChild(nodeNewContainers[i]);
-			}
-		}
-	};
+			nodeExist.appendChild(frag);
+		} // End printCar
+	}; // End listener
 
 	function main(){
 		dom.createCache();
